@@ -41,7 +41,7 @@ public class NetherPortalMixin {
     private static void savePlayerPosition(ServerWorld destination, BlockLocating.Rectangle portalRect, Direction.Axis portalAxis, Vec3d offset, Entity entity, Vec3d velocity, float yaw, float pitch, CallbackInfoReturnable<TeleportTarget> cir) {
         if (destination.getRegistryKey() != World.NETHER) return;
         if (!(entity instanceof PlayerEntity player)) return;
-        Vec3d pos = entity.getPos();
+        Vec3d pos = player.getPos();
         Data.putPlayerPosition(player.getUuid(), pos);
         LOGGER.info(player.getEntityName() + " (" + player.getUuidAsString() + ") entered the nether at " + pos);
     }

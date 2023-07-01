@@ -28,15 +28,19 @@ public class Data {
             } catch (IOException | JsonSyntaxException e) {
                 LOGGER.error("Failed to load data, falling back to defaults", e);
             }
-        save();
+        saveNoThread();
     }
 
-    private static void save() {
+    private static void saveNoThread() {
         try {
             Files.writeString(dataPath, gson.toJson(data));
         } catch (IOException e) {
             LOGGER.error("Failed to save data", e);
         }
+    }
+
+    private static void save() {
+        new Thread(Data::saveNoThread).start();
     }
 
     public static boolean enabled() {
