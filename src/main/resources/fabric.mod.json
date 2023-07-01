@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "netherportalreturn",
+  "version": "${version}",
+  "name": "netherportalreturn",
+  "description": "",
+  "authors": ["naturecodevoid"],
+  "contact": {
+    "sources": "https://github.com/naturecodevoid/netherportalreturn"
+  },
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "dev.naturecodevoid.netherportalreturn.NetherPortalReturnMod"
+    ]
+  },
+  "mixins": [
+    "netherportalreturn.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17"
+  }
+}
